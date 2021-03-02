@@ -9,3 +9,4 @@
 >python thainamecheck.py กมลทิพย์
 >
 
+Result should show 'Yes' or 'No'
