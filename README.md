@@ -2,7 +2,7 @@
 - Support Thai Name 
 - We use LSTM to Build model
 - Accuracy 81%
-- Character limit 30 Characters
+- Character name should not over than 30 characters
 
 
 # Installation
