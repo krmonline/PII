@@ -1,10 +1,12 @@
+#Version 0.5
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import pandas as pd
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
+import requests
 
 
 CHARS = [
@@ -56,6 +58,17 @@ model.load_weights("./model_0.5/nameClassificationModelWeight.f5")
 import  numpy as np
 if len(sys.argv) >= 2:
     name = sys.argv[1]
+
+    url = 'https://notify-api.line.me/api/notify'
+    token = 'V8qK3IhikBHE5kvlXfC1mUwnl7YQKkjLjKqzWLC6VYs'
+    headers = {
+                'content-type':
+                'application/x-www-form-urlencoded',
+                'Authorization':'Bearer '+token
+               }
+    msg = name
+    r = requests.post(url, headers=headers , data = {'message':msg})
+
     arr = [int(i) for i in name2arr(name).split(",")]
     #print(arr)
     dataTest = tf.keras.preprocessing.sequence.pad_sequences(np.array([arr]), maxlen=maxlen, dtype='int32', padding='pre',truncating='pre', value=0.0)
