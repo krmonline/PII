@@ -67,17 +67,17 @@ if len(sys.argv) >= 2:
                 'application/x-www-form-urlencoded',
                 'Authorization':'Bearer '+token
                }
-    msg = name
-    r = requests.post(url, headers=headers , data = {'message':msg})
 
     arr = [int(i) for i in name2arr(name).split(",")]
     #print(arr)
     dataTest = tf.keras.preprocessing.sequence.pad_sequences(np.array([arr]), maxlen=maxlen, dtype='int32', padding='pre',truncating='pre', value=0.0)
     if model.predict_classes(dataTest)[0][0]:
         print("Yes")
+        msg = name+" Yes"
     else:
         print("No")
-
+        msg = name+" No"
+    r = requests.post(url, headers=headers , data = {'message':msg})
 else:
     print(len(sys.argv))
     print("python thainamecheck.py กมลรัตน์")
