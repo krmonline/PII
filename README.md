@@ -1,8 +1,11 @@
 # PII Version 0.5
 - Support Thai Name 
 
-## How to use
-You can run with this command
+# Installation
+- Download This  as zip file
+- Extract file
+- Execute  with python 
+
 >python thainamecheck.py กมลทิพย์
 >
 
